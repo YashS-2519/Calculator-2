@@ -40,8 +40,8 @@ function displayOnScreen(value) {
 
 function calculate() {
     let ans = '';
-    operand1 = parseFloat(operand1);
-    operand2 = parseFloat(operand2);
+    operand1 = parseFloat(operand1 == '.' ? '0' : operand1);
+    operand2 = parseFloat(operand2 == '.' ? '0' : operand2);
     switch (operator) {
         case '+':
             ans = operand1 + operand2;
@@ -54,7 +54,7 @@ function calculate() {
             break;
         case '/':
             if (operand2 == 0) {
-                return "Invalid"
+                alert("Invalid");
             }
             else {
                 ans = operand1 / operand2;
@@ -62,7 +62,7 @@ function calculate() {
             break;
         case '%':
             if (operand2 == 0) {
-                return "Invalid"
+                alert("Invalid");
             }
             else {
                 ans = operand1 % operand2;
@@ -70,7 +70,7 @@ function calculate() {
             break;
     }
     screenValue = ans.toString();
-    operand1 = ans;
+    operand1 = ans.toString();
     operand2 = '';
     operator = '';
     ans = '';
@@ -133,7 +133,7 @@ buttonArray.forEach((button) => {
             }
         }
         
-        console.log(`operand1: ${operand1} and operand2: ${operand2} and Operator: ${operator}`);
+        // console.log(`operand1: ${operand1} and operand2: ${operand2} and Operator: ${operator}`);
         
     });
 });
