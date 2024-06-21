@@ -115,8 +115,15 @@ buttonArray.forEach((button) => {
                 operand2 += buttonValue == '0.' ? '0.' : buttonValue;
             }
             else if (isNaN(buttonValue)) {
-                if (operand2 == '') {
+
+                if (operand1 == '' && buttonValue == '-') {
+                    operand1 += '-';
+                }
+                else if (operand1 != '-' && operand2 == '' && operator == '') {
                     operator = buttonValue;
+                }
+                else if (operand1 != '-' && operand2 == '' && operator != '') {
+                    operand2 += '-';
                 }
                 else {
                     calculate();
@@ -125,7 +132,7 @@ buttonArray.forEach((button) => {
                 }
             }
         }
-
+        
         console.log(`operand1: ${operand1} and operand2: ${operand2} and Operator: ${operator}`);
         
     });
