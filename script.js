@@ -35,7 +35,6 @@ function displayOnScreen(value) {
         screenValue += value;
     }
     
-    console.log(screenValue);
     display.value = screenValue;
     display.scrollLeft = display.scrollWidth;
 
