@@ -18,21 +18,24 @@ function displayOnScreen(value) {
         screenValue += '0.';
     }
     else if (value == '-1') {
+
         screenValue = screenValue.slice(0, -1);
-        if (operand1 != '' && operand2 == '' && operator == '' ) {
+        if (operand1 != '' && operand2 === '' && operator == '' ) {
             operand1 = operand1.slice(0, -1);
         }
-        else if (operand1 != '' && operand2 == '' && operator != '') {
+        else if (operand1 != '' && operand2 === '' && operator != '') {
             operator = ''
         }
         else if (operand1 != '' && operand2 != '' && operator != '') {
             operand2 = operand2.slice(0, -1);
         }
+
     }
     else {
         screenValue += value;
     }
-
+    
+    console.log(screenValue);
     display.value = screenValue;
     display.scrollLeft = display.scrollWidth;
 
@@ -129,13 +132,15 @@ buttonArray.forEach((button) => {
                 }
                 else {
                     calculate();
+                    operator = buttonValue;
                     display.value = screenValue + buttonValue;
+                    screenValue = display.value;
                     display.scrollLeft = display.scrollWidth;
                 }
             }
         }
         
-        // console.log(`operand1: ${operand1} and operand2: ${operand2} and Operator: ${operator}`);
+        // console.log(`buttonValue: ${buttonValue} and operand1: ${operand1} and operand2: ${operand2} and Operator: ${operator}`);
         
     });
 });
