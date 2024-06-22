@@ -79,7 +79,8 @@ function calculate() {
 buttonArray.forEach((button) => {
     button.addEventListener('click', () => {
         buttonValue = button.getAttribute('value');
-
+        display.style.color = 'black';
+        
         if (buttonValue == 'C') {
             displayOnScreen('');
             screenValue = '';
@@ -98,6 +99,7 @@ buttonArray.forEach((button) => {
                 calculate();
                 display.value = screenValue;
                 display.scrollLeft = display.scrollWidth;
+                display.style.color = 'green';
             }
             catch (e) {
                 screenValue = 'Error';
